@@ -1,21 +1,21 @@
 package com.example.ptsgenap10rpl228.model;
 
 public class ListModel {
-    int imageId;
+    int imageID;
     String title, desc;
 
     public ListModel(int image, String title, String desc) {
-        this.imageId = image;
+        this.imageID = image;
         this.title = title;
         this.desc = desc;
     }
 
-    public int getImageId() {
-        return imageId;
+    public int getImageID() {
+        return imageID;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
+    public void setImageID(int imageID) {
+        this.imageID = imageID;
     }
 
     public String getTitle() {

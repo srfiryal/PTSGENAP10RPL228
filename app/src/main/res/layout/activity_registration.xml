@@ -13,19 +13,19 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/img_backButton_registration"
+            android:id="@+id/img_back_registration"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/back"
+            android:src="@drawable/ic_baseline_arrow_back_24"
             app:tint="@color/grey"
             android:layout_margin="12dp"
             android:layout_alignParentLeft="true" />
 
         <ImageView
-            android:id="@+id/img_infoButton_registration"
+            android:id="@+id/img_info_registration"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/info"
+            android:src="@drawable/ic_baseline_info_24"
             app:tint="@color/grey"
             android:layout_margin="12dp"
             android:layout_alignParentRight="true"/>
@@ -108,7 +108,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/img_arrowButton_registration"
+            android:id="@+id/img_register_registration"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/loginbutton"

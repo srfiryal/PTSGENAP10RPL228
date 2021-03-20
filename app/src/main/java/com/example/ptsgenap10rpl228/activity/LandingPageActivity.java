@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.ptsgenap10rpl228.adapter.ListAdapter;
 import com.example.ptsgenap10rpl228.model.ListModel;
 import com.example.ptsgenap10rpl228.R;
+import com.example.ptsgenap10rpl228.model.Preferences;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -43,6 +44,7 @@ public class LandingPageActivity extends AppCompatActivity {
     final int RC_SIGN_IN = 101;
     FirebaseAuth firebaseAuth;
     FirebaseUser currentUser;
+    Preferences preferences;
     RecyclerView recyclerView;
     ListAdapter adapter;
     ArrayList<ListModel> arrayList;
@@ -55,9 +57,11 @@ public class LandingPageActivity extends AppCompatActivity {
         btn_login = findViewById(R.id.btn_login_main);
         btn_register = findViewById(R.id.btn_register_main);
         btn_google = findViewById(R.id.btn_google_main);
+        recyclerView = findViewById(R.id.rv_landing);
+
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser();
-        recyclerView = findViewById(R.id.rv_landing);
+        preferences = new Preferences();
 
         addData();
 
@@ -137,7 +141,9 @@ public class LandingPageActivity extends AppCompatActivity {
 
     private void checkGoogleUser() {
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+
         if (currentUser != null) {
+            preferences.setStatus(getApplicationContext(), true);
             startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
             finish();
         }

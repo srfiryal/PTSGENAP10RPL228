@@ -9,14 +9,17 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ptsgenap10rpl228.R;
+import com.example.ptsgenap10rpl228.model.Preferences;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class DashboardActivity extends AppCompatActivity {
 
     Button btn_logout;
-    FirebaseAuth firebaseAuth;
     TextView tv_user;
+    Preferences preferences;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +28,12 @@ public class DashboardActivity extends AppCompatActivity {
 
         btn_logout = findViewById(R.id.btn_logout_dashboard);
         tv_user = findViewById(R.id.tv_welcomeTitle_dashboard);
-        firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
-        if (currentUser == null) {
+        firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = firebaseAuth.getCurrentUser();
+        preferences = new Preferences();
+
+        if (!preferences.getStatus(getApplicationContext())) {
             Intent intent = new Intent(getApplicationContext(), LandingPageActivity.class);
             startActivity(intent);
             finish();
@@ -40,14 +45,14 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
+                preferences.setStatus(getApplicationContext(), false);
                 checkUser();
             }
         });
     }
 
     private void checkUser() {
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if (currentUser == null) {
+        if (!preferences.getStatus(getApplicationContext())) {
             Intent intent = new Intent(getApplicationContext(), LandingPageActivity.class);
             startActivity(intent);
             finish();

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.ptsgenap10rpl228.R;
+import com.example.ptsgenap10rpl228.model.Preferences;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -24,37 +25,46 @@ public class LoginActivity extends AppCompatActivity {
 
     TextInputEditText txt_email, txt_password;
     TextInputLayout layout_email, layout_password;
-    ImageView img_backButton, img_infoButton, img_arrowButton;
+    ImageView btn_back, btn_info, btn_login;
     FirebaseAuth firebaseAuth;
     ProgressDialog progressDialog;
+    Preferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        progressDialog = new ProgressDialog(this);
-
         txt_email = findViewById(R.id.txt_email_login);
         txt_password = findViewById(R.id.txt_password_login);
-        img_backButton = findViewById(R.id.img_backButton_login);
-        img_infoButton = findViewById(R.id.img_infoButton_login);
-        img_arrowButton = findViewById(R.id.img_arrowButton_login);
+        btn_back = findViewById(R.id.img_back_login);
+        btn_info = findViewById(R.id.img_info_login);
+        btn_login = findViewById(R.id.img_login_login);
         layout_email = findViewById(R.id.layout_email_login);
         layout_password = findViewById(R.id.layout_password_login);
-        firebaseAuth = FirebaseAuth.getInstance();
 
-        img_backButton.setOnClickListener(new View.OnClickListener() {
+        progressDialog = new ProgressDialog(this);
+        firebaseAuth = FirebaseAuth.getInstance();
+        preferences = new Preferences();
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
 
-        img_arrowButton.setOnClickListener(new View.OnClickListener() {
+        btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loginUser();
+            }
+        });
+
+        btn_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LoginActivity.this, "Fill in the fields with valid email and password to log in.", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -91,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             progressDialog.dismiss();
                             if (task.isSuccessful()) {
-//                                preferences.setStatus(getApplicationContext(), true);
+                                preferences.setStatus(getApplicationContext(), true);
                                 Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                                 startActivity(intent);
                                 finish();

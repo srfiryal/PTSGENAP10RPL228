@@ -4,9 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,7 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     TextInputEditText txt_name, txt_email, txt_password;
     TextInputLayout layout_email, layout_password;
-    ImageView img_backButton, img_infoButton, img_arrowButton;
+    ImageView btn_back, btn_info, btn_arrow;
     ProgressDialog progressDialog;
     FirebaseAuth firebaseAuth;
 
@@ -39,25 +37,33 @@ public class RegistrationActivity extends AppCompatActivity {
         txt_name = findViewById(R.id.txt_name_registration);
         txt_email = findViewById(R.id.txt_email_registration);
         txt_password = findViewById(R.id.txt_password_registration);
-        img_backButton = findViewById(R.id.img_backButton_registration);
-        img_infoButton = findViewById(R.id.img_infoButton_registration);
-        img_arrowButton = findViewById(R.id.img_arrowButton_registration);
+        btn_back = findViewById(R.id.img_back_registration);
+        btn_info = findViewById(R.id.img_info_registration);
+        btn_arrow = findViewById(R.id.img_register_registration);
         layout_email = findViewById(R.id.layout_email_registration);
         layout_password = findViewById(R.id.layout_password_registration);
+
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        img_backButton.setOnClickListener(new View.OnClickListener() {
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
 
-        img_arrowButton.setOnClickListener(new View.OnClickListener() {
+        btn_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registerUser();
+            }
+        });
+
+        btn_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(RegistrationActivity.this, "Fill in the fields with the required information to register.", Toast.LENGTH_SHORT).show();
             }
         });
     };
@@ -83,7 +89,6 @@ public class RegistrationActivity extends AppCompatActivity {
         } else {
             layout_email.setError(null);
             layout_password.setError(null);
-
             progressDialog.setMessage("We're registering you...");
             progressDialog.setCancelable(false);
             progressDialog.show();

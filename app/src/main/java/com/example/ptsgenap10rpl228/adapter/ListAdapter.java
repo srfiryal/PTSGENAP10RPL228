@@ -44,7 +44,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
 
     @Override
     public void onBindViewHolder(ListViewHolder holder, int position) {
-        holder.img_list.setImageResource(dataList.get(position).getImageId());
+        holder.img_list.setImageResource(dataList.get(position).getImageID());
         holder.tv_title.setText(dataList.get(position).getTitle());
         holder.tv_desc.setText(dataList.get(position).getDesc());
     }
