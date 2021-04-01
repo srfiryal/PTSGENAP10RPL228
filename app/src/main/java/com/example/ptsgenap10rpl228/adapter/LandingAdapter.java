@@ -10,14 +10,14 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ptsgenap10rpl228.model.ListModel;
+import com.example.ptsgenap10rpl228.model.LandingModel;
 import com.example.ptsgenap10rpl228.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder> {
-    private List<ListModel> dataList, dataListFull;
+public class LandingAdapter extends RecyclerView.Adapter<LandingAdapter.ListViewHolder> {
+    private List<LandingModel> dataList, dataListFull;
     private OnItemClickListener mListener;
     private Context mContext;
 
@@ -29,7 +29,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         mListener = listener;
     }
 
-    public ListAdapter(Context mContext, ArrayList<ListModel> dataList) {
+    public LandingAdapter(Context mContext, ArrayList<LandingModel> dataList) {
         this.mContext = mContext;
         this.dataList = dataList;
         dataListFull = new ArrayList<>(dataList);
@@ -38,7 +38,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
     @Override
     public ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.landingimages_list, parent, false);
+        View view = layoutInflater.inflate(R.layout.rv_landing, parent, false);
         return new ListViewHolder(view, mListener);
     }
 
@@ -61,10 +61,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
 
         public ListViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
-            tv_title = itemView.findViewById(R.id.tv_title_list);
-            tv_desc = itemView.findViewById(R.id.tv_desc_list);
-            img_list = itemView.findViewById(R.id.img_list);
-            relativeLayout = itemView.findViewById(R.id.rv_layout_list);
+            tv_title = itemView.findViewById(R.id.tv_title_rvLanding);
+            tv_desc = itemView.findViewById(R.id.tv_desc_rvLanding);
+            img_list = itemView.findViewById(R.id.img_rvLanding);
+            relativeLayout = itemView.findViewById(R.id.rv_layout_rvLanding);
 
             relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override

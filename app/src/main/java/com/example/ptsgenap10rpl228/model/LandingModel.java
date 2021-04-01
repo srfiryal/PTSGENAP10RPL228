@@ -1,10 +1,10 @@
 package com.example.ptsgenap10rpl228.model;
 
-public class ListModel {
+public class LandingModel {
     int imageID;
     String title, desc;
 
-    public ListModel(int image, String title, String desc) {
+    public LandingModel(int image, String title, String desc) {
         this.imageID = image;
         this.title = title;
         this.desc = desc;

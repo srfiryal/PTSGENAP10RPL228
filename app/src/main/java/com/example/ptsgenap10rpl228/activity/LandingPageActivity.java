@@ -14,8 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.ptsgenap10rpl228.adapter.ListAdapter;
-import com.example.ptsgenap10rpl228.model.ListModel;
+import com.example.ptsgenap10rpl228.adapter.LandingAdapter;
+import com.example.ptsgenap10rpl228.model.LandingModel;
 import com.example.ptsgenap10rpl228.R;
 import com.example.ptsgenap10rpl228.model.Preferences;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -46,8 +46,8 @@ public class LandingPageActivity extends AppCompatActivity {
     FirebaseUser currentUser;
     Preferences preferences;
     RecyclerView recyclerView;
-    ListAdapter adapter;
-    ArrayList<ListModel> arrayList;
+    LandingAdapter adapter;
+    ArrayList<LandingModel> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,14 +157,14 @@ public class LandingPageActivity extends AppCompatActivity {
 
     private void addData() {
         arrayList = new ArrayList<>();
-        arrayList.add(new ListModel(R.drawable.landingimage1, "Welcome to Gojek!", "Your go-to app for a hassle-free life. We're here to help all your needs, anytime and anywhere."));
-        arrayList.add(new ListModel(R.drawable.landingimage2, "Transport & logistics", "Daily commute and goods delivery made easy."));
-        arrayList.add(new ListModel(R.drawable.landingimage3, "Order food & groceries", "Either needs or cravings, we got you covered."));
-        arrayList.add(new ListModel(R.drawable.landingimage4, "Payment", "Pay utility bills, phone credit, and transfer money from your phone."));
-        arrayList.add(new ListModel(R.drawable.landingimage5, "News & entertainment", "Get updates, play games, and stream favorite shows, all in your Gojek app."));
-        arrayList.add(new ListModel(R.drawable.landingimage6, "Professional services", "Consult with trusted doctors and buy medicine from home."));
+        arrayList.add(new LandingModel(R.drawable.landingimage1, "Welcome to Gojek!", "Your go-to app for a hassle-free life. We're here to help all your needs, anytime and anywhere."));
+        arrayList.add(new LandingModel(R.drawable.landingimage2, "Transport & logistics", "Daily commute and goods delivery made easy."));
+        arrayList.add(new LandingModel(R.drawable.landingimage3, "Order food & groceries", "Either needs or cravings, we got you covered."));
+        arrayList.add(new LandingModel(R.drawable.landingimage4, "Payment", "Pay utility bills, phone credit, and transfer money from your phone."));
+        arrayList.add(new LandingModel(R.drawable.landingimage5, "News & entertainment", "Get updates, play games, and stream favorite shows, all in your Gojek app."));
+        arrayList.add(new LandingModel(R.drawable.landingimage6, "Professional services", "Consult with trusted doctors and buy medicine from home."));
 
-        adapter = new ListAdapter(getApplicationContext(), arrayList);
+        adapter = new LandingAdapter(getApplicationContext(), arrayList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemViewCacheSize(20);
