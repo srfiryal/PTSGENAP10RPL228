@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    Button btn_logout;
+    Button btn_ourPicks, btn_logout;
     TextView tv_user;
     Preferences preferences;
     FirebaseAuth firebaseAuth;
@@ -26,6 +26,7 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        btn_ourPicks = findViewById(R.id.btn_ourPicks_dashboard);
         btn_logout = findViewById(R.id.btn_logout_dashboard);
         tv_user = findViewById(R.id.tv_welcomeTitle_dashboard);
 
@@ -40,6 +41,14 @@ public class DashboardActivity extends AppCompatActivity {
         } else {
             tv_user.setText("Welcome, " + currentUser.getDisplayName());
         }
+
+        btn_ourPicks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), OurPicksActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override

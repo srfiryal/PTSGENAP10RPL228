@@ -2,12 +2,12 @@ package com.example.ptsgenap10rpl228.model;
 
 public class LandingModel {
     int imageID;
-    String title, desc;
+    String mainFeature, featureDesc;
 
-    public LandingModel(int image, String title, String desc) {
+    public LandingModel(int image, String mainFeature, String featureDesc) {
         this.imageID = image;
-        this.title = title;
-        this.desc = desc;
+        this.mainFeature = mainFeature;
+        this.featureDesc = featureDesc;
     }
 
     public int getImageID() {
@@ -18,19 +18,19 @@ public class LandingModel {
         this.imageID = imageID;
     }
 
-    public String getTitle() {
-        return title;
+    public String getMainFeature() {
+        return mainFeature;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setMainFeature(String mainFeature) {
+        this.mainFeature = mainFeature;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getFeatureDesc() {
+        return featureDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setFeatureDesc(String featureDesc) {
+        this.featureDesc = featureDesc;
     }
 }

@@ -22,14 +22,14 @@
             android:fontFamily="@font/poppinsmedium"
             android:textSize="16sp"
             android:layout_centerHorizontal="true"
-            android:layout_above="@+id/btn_topPicks_dashboard"/>
+            android:layout_above="@+id/btn_ourPicks_dashboard"/>
 
         <Button
-            android:id="@+id/btn_topPicks_dashboard"
+            android:id="@+id/btn_ourPicks_dashboard"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
-            android:text="See Top Picks"
+            android:text="See Our Picks"
             android:textAllCaps="false"
             android:fontFamily="@font/poppinsregular"
             android:textStyle="bold"
