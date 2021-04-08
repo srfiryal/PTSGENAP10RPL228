@@ -26,7 +26,7 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        btn_ourPicks = findViewById(R.id.btn_ourPicks_dashboard);
+        btn_ourPicks = findViewById(R.id.btn_recommendations_dashboard);
         btn_logout = findViewById(R.id.btn_logout_dashboard);
         tv_user = findViewById(R.id.tv_welcomeTitle_dashboard);
 
@@ -45,7 +45,7 @@ public class DashboardActivity extends AppCompatActivity {
         btn_ourPicks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), OurPicksActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RecommendationsActivity.class);
                 startActivity(intent);
             }
         });
