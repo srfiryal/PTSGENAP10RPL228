@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LandingAdapter extends RecyclerView.Adapter<LandingAdapter.ListViewHolder> {
-    private List<LandingModel> dataList, dataListFull;
+    private List<LandingModel> dataList;
     private OnItemClickListener mListener;
     private Context mContext;
 
@@ -32,7 +32,6 @@ public class LandingAdapter extends RecyclerView.Adapter<LandingAdapter.ListView
     public LandingAdapter(Context mContext, ArrayList<LandingModel> dataList) {
         this.mContext = mContext;
         this.dataList = dataList;
-        dataListFull = new ArrayList<>(dataList);
     }
 
     @Override

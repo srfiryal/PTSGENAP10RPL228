@@ -1,8 +1,8 @@
 package com.example.ptsgenap10rpl228.model;
 
 public class LandingModel {
-    int imageID;
-    String mainFeature, featureDesc;
+    private int imageID;
+    private String mainFeature, featureDesc;
 
     public LandingModel(int image, String mainFeature, String featureDesc) {
         this.imageID = image;

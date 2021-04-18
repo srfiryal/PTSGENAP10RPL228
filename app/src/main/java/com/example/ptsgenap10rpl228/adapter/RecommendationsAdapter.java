@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecommendationsAdapter extends RecyclerView.Adapter<RecommendationsAdapter.ListViewHolder> {
-    private List<RecommendationsModel> dataList, dataListFull;
+    private List<RecommendationsModel> dataList;
     private OnItemClickListener mListener;
     private Context mContext;
 
@@ -33,7 +33,6 @@ public class RecommendationsAdapter extends RecyclerView.Adapter<Recommendations
     public RecommendationsAdapter(Context mContext, ArrayList<RecommendationsModel> dataList) {
         this.mContext = mContext;
         this.dataList = dataList;
-        dataListFull = new ArrayList<>(dataList);
     }
 
     @Override
